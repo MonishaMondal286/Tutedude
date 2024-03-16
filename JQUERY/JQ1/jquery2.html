@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery-2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+     #circle{
+        width:200px;
+        height: 200px;
+        background-color: green;
+        border-radius: 50%;
+     }
+     #square{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+     }
+    </style>
+</head>
+<body>
+    <div id="circle"></div>
+    <div id="square"></div>
+    <br>
+    <div id="square"></div>
+
+
+    <script>
+        $("#circle").hover(function(){
+            alert("Circle is clicked");
+        })
+        $("#square").click(function(){
+            alert("square is clicked");
+        })
+
+        // or
+        $("div").click(function(){
+            alert("div is clicked ")
+        })
+        
+    </script>
+</body>
+</html>

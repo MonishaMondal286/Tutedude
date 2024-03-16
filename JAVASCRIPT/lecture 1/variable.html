@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable</title>
+</head>
+<body>
+    <input id="int" type="text">
+    <button id="btn" >Submit</button>
+    <p id="info">This is paragraph</p>
+
+    <script>
+        document.getElementById("btn").onclick = function(){
+            // var inputBox = "";
+           var inputBox = document.getElementById("int").value;
+            document.getElementById("info").innerHTML = inputBox;
+        }
+    </script>
+
+</body>
+</html>

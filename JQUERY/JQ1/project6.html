@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project - Form validation </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+           body{
+                 font-family: Arial, Helvetica, sans-serif;
+                 font-size: 130%;
+                }
+           
+                .wrapper{
+                    width: 500px;
+                    height: 430px;
+                    border: 1px solid rgb(160, 155, 155) ;
+                    margin: auto;
+                    border-radius: 5px;
+                }
+                .wrapper>.formelement>input{
+                    width: 280px;
+                    height: 30px;
+                    border: 1px solid rgb(160, 155, 155) ;
+                    border-radius: 3px;
+                    margin-top: 10px;
+                }
+                .wrapper>input{
+                    width: 200px;
+                    height: 40px;
+                    border: 1px solid rgb(160, 155, 155) ;
+                    border-radius: 3px;
+                    margin-left: 140px;
+                    margin-top: 40px;
+                    background-color: lightgray;
+                    font-weight: bolder;
+                    font-size: 20px;
+                }
+
+    </style>
+   
+
+</head>
+<body>
+      <div id="error"></div>
+      <div class="wrapper">
+      <div class="formelement">
+      <label for="email">Email id :&nbsp;&nbsp;</label> &nbsp;&nbsp;
+      <input type="email" id="emai" name="email">
+      </div>
+      <br><br>
+      <div class="formelement">
+      <label for="number">Mobile no.:&nbsp;&nbsp;</label>
+      <input type="number" id="numb" name="number">
+     </div>
+     <br><br>
+     <div class="formelement">
+     <label for="Password">Password: &nbsp;&nbsp; </label> 
+     <input type="password" id="pass" name="Password">
+     </div>
+     <br><br>
+    <div class="formelement">
+    <label for="ConfirmPassword">Confirm <br>Password:&nbsp;&nbsp;</label> 
+    <input type="Confirmpassword" id="confirmpass" name="ConfirmPassword">
+    </div>
+
+    <input id="subbtn" type="submit">
+</div>
+
+
+
+    <script>
+        var errormessage = "";
+        var missingfield = "";
+
+        function isEmail(email){
+            var regex = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+            return regex.test(email);
+           }
+
+        $("#subbtn").click(function(){
+           if($("#emai").val() == ""){
+            missingfield += "<p> email required</p>"
+           }
+           if($("#numb").val() == ""){
+            missingfield += "<p>mobile number required</p>"
+           }
+           if($("#pass").val() == ""){
+            missingfield += "<p> password required</p>"
+           }
+
+
+           if(isEmail($("#emai").val())==false){
+            errormessage += "<p> Email id is not valid </p>"
+           }
+           if($.isNumeric(("#numb").val())==false){
+           errormessage += "<p> phone number is not valid </p>"
+           }
+           if($("#pass").val() != $("#confirmpass").val()){
+            errormessage += "<p> password do not match </p>"
+           }
+
+           if( errormessage == ""){
+            $("#error").html("you are registered");
+           }
+           else{
+            $("#error").html(errormessage + missingfield);
+           }
+        });
+        
+    </script>
+</body>
+</html>

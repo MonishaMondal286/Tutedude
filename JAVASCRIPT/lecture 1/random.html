@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing random number using if statement</title>
+</head>
+<body>
+    <p>Enter a number between 1 to 10</p>
+    <input id="int" type="text">
+    <button id="btn" >Submit</button>
+</body>
+
+      <script>
+        let answers = 0;
+        document.getElementById("btn").onclick = function(){
+            answers = document.getElementById("int").value
+            var ans = Math.floor(Math.random()*10)+1;
+            console.log(ans)
+
+            if(answer==ans){
+                alert("user has won!")
+            }
+            else{
+                alert("try again")
+            }
+        }
+      </script>
+</html>
